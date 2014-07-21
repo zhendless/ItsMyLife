@@ -9,5 +9,10 @@
     <string name="regist">注册</string>
     <string name="email">邮箱</string>
     <string name="password">密码</string>
+    <string name="forget_password">忘记密码</string>
+        
+    <string name="todo_list">Todo List</string>
+    <string name="tally">记账</string>
+    
     
 </resources>

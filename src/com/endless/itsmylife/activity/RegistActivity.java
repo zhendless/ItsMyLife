@@ -9,4 +9,5 @@ public class RegistActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
     }
+    
 }
