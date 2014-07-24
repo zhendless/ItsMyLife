@@ -4,6 +4,7 @@
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
     <string name="send">发送</string>
+    <string name="generate">生成</string>
     
     <string name="login">登录</string>
     <string name="regist">注册</string>
@@ -13,6 +14,8 @@
         
     <string name="todo_list">Todo List</string>
     <string name="tally">记账</string>
+    
+    <string name="qr_code_hint">请输入要生成的二维码链接</string>
     
     
 </resources>
