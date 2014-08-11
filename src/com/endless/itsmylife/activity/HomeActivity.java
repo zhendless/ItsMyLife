@@ -7,6 +7,7 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.endless.itsmylife.activity.base.BaseActivity;
 import com.endless.itsmylife.utils.EncrypAES;
 
 /**
@@ -15,7 +16,6 @@ import com.endless.itsmylife.utils.EncrypAES;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText mEtKey, mEtContent;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,35 +36,23 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.button_decode:
                 try {
-                    byte[] result = Base64.decode(mEtContent.getText().toString().trim(), 1);
-                    String result2 = EncrypAES.decrypt(mEtKey.getText().toString(), new String(result, "utf-8"));
-                    mEtContent.setText(result2);
+                    byte[] b64Key = Base64.encode(mEtKey.getText().toString().trim().getBytes(), 1);
+                    String b64Content = EncrypAES.decrypt(new String(b64Key, "utf-8"), mEtContent.getText().toString().trim());
+                    byte[] deContent = Base64.decode(b64Content, 1);
+                    mEtContent.setText(new String(deContent, "utf-8"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                /*try {
-                    byte[] result = Base64.decode(mEtContent.getText().toString(), 1);
-                    mEtContent.setText(new String(result, "utf-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
-
                 break;
             case R.id.button_encode:
                 try {
-                    String result = EncrypAES.encrypt(mEtKey.getText().toString().trim(), mEtContent.getText().toString().trim());
-                    byte[] result1 = Base64.encode(result.getBytes(), 1);
-                    mEtContent.setText(new String(result1, "utf-8"));
+                    byte[] b64Key = Base64.encode(mEtKey.getText().toString().trim().getBytes(), 1);
+                    byte[] b64Content = Base64.encode(mEtContent.getText().toString().trim().getBytes(), 1);
+                    String result = EncrypAES.encrypt(new String(b64Key, "utf-8"), new String(b64Content, "utf-8"));
+                    mEtContent.setText(result);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                /*try {
-                    byte[] result1 = Base64.encode(mEtContent.getText().toString().getBytes(), 1);
-                    mEtContent.setText(new String(result1, "utf-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
-
                 break;
             case R.id.button_share:
                 Intent intent = new Intent(Intent.ACTION_SEND);

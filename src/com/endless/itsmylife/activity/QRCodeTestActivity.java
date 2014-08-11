@@ -2,6 +2,7 @@ package com.endless.itsmylife.activity;
 
 import java.util.Hashtable;
 
+import com.endless.itsmylife.activity.base.BaseActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
