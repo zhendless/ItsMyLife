@@ -16,6 +16,14 @@
     <string name="tally">记账</string>
     
     <string name="qr_code_hint">请输入要生成的二维码链接</string>
-    
-    
+
+    <string name="decode">解密</string>
+    <string name="encode">加密</string>
+    <string name="share">分享</string>
+    <string name="key">密钥：</string>
+    <string name="content">内容：</string>
+
+    <string name="key_is_empty">密钥为空！！</string>
+    <string name="content_is_empty">内容为空！！</string>
+
 </resources>
