@@ -3,6 +3,7 @@ package com.endless.itsmylife.activity.base;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.endless.common.log.ZLog;
 
 public class BaseActivity extends Activity {
 
@@ -13,7 +14,7 @@ public class BaseActivity extends Activity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onCreate() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onCreate() invoked!!");
         super.onCreate(savedInstanceState);
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        MobclickAgent.onError(this);
@@ -22,26 +23,26 @@ public class BaseActivity extends Activity {
 
     @Override
     protected void onStart() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onStart() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onStart() invoked!!");
         super.onStart();
     }
 
     @Override
     protected void onRestart() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onRestart() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onRestart() invoked!!");
         super.onRestart();
     }
 
     @Override
     protected void onResume() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onResume() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onResume() invoked!!");
         super.onResume();
 //        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onPause() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onPause() invoked!!");
         super.onPause();
         try {
 //            MobclickAgent.onPause(this);
@@ -52,13 +53,13 @@ public class BaseActivity extends Activity {
 
     @Override
     protected void onStop() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onStop() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onStop() invoked!!");
         super.onStop();
     }
 
     @Override
     public void onDestroy() {
-//        LogUtil.d(TAG, this.getClass().getSimpleName() + " onDestroy() invoked!!");
+        ZLog.d(TAG, this.getClass().getSimpleName() + " onDestroy() invoked!!");
         super.onDestroy();
 
         /*if (mRunningTask != null && mRunningTask.isCancelled() == false) {
