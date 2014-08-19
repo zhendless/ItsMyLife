@@ -1,6 +1,7 @@
 package com.endless.itsmylife;
 
 import android.app.Application;
+import com.endless.common.log.CrashHandler;
 import com.endless.common.log.ZLog;
 import com.endless.itsmylife.utils.MetaDataHelper;
 
@@ -21,6 +22,6 @@ public class IMLApplication extends Application {
         instance = this;
         MetaDataHelper.init(this);
         ZLog.init(this, MetaDataHelper.LOG_LEVEL);
-
+        CrashHandler.getInstance().init();
     }
 }
