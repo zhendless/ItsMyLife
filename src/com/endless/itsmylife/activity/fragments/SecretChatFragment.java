@@ -1,5 +1,7 @@
 package com.endless.itsmylife.activity.fragments;
 
+import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -9,12 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 import com.endless.common.log.ZLog;
 import com.endless.itsmylife.activity.R;
 import com.endless.itsmylife.utils.EncrypAES;
 import com.endless.itsmylife.utils.ToastUtil;
-import org.w3c.dom.Text;
 
 /**
  * Created by zhanglei on 14-8-18.
@@ -131,7 +131,14 @@ public class SecretChatFragment extends BaseFragment implements View.OnClickList
                 ToastUtil.showMessage(getActivity(), R.string.message_content_is_null);
             } else {
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(targetPhone, null, content, null, null);
+                if (content.length() > 70) {
+                    List<String> pieces = smsManager.divideMessage(content);
+                    for (String sms : pieces) {
+                        smsManager.sendTextMessage(targetPhone, null, sms, null, null);
+                    }
+                } else {
+                    smsManager.sendTextMessage(targetPhone, null, content, null, null);
+                }
                 ZLog.d(TAG, "message sent!");
             }
         }

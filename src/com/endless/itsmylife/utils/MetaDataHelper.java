@@ -3,9 +3,6 @@ package com.endless.itsmylife.utils;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import com.endless.common.log.ZLog;
-
-import java.util.Objects;
 
 /**
  * Created by zhanglei on 14-8-12.
